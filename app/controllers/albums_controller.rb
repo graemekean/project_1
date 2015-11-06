@@ -14,7 +14,7 @@ end
 def show
   load_album
   @photos = Photo.all
-  @photo = Photo.find(params[:id])
+  # @photo = Photo.find(params[:id])
 end
 
 def new

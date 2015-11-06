@@ -1,0 +1,31 @@
+
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @album.title %></h1>
+<br>
+
+
+<% @photos.each do |photo| %>
+
+<% if photo.album_id == @album.id %>
+<%#= recipe.name %>
+<%= link_to(photo.title, photo_path(photo)) %>&nbsp;&nbsp;
+<% else %>
+<% end %>
+
+
+<% end %>
+<br>
+<br>
+
+<%= button_to('Delete Album', album_path(@album), method: :delete, data:{confirm: "Delete Album? Are you sure?"}) %>
+<%= link_to("Edit Album", edit_album_path(@album)) %>
+
+
+
+</div>
+
+
+</div>

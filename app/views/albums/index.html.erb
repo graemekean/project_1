@@ -1,0 +1,19 @@
+
+
+<div class='container'>
+  <div class='holder'>
+  <h1>List of Albums</h1>
+    <p>|&nbsp;<% @albums.each do |album| %>
+    
+    <%= link_to(album.title, album_path(album)) %> &nbsp;   |&nbsp;
+
+    <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
+    <%#= link_to("Edit Country", edit_country_path(country)) %>
+    
+    <% end %></p>
+    <br>
+    <br>
+
+   
+  </div>
+</div>

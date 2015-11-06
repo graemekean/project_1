@@ -4,17 +4,24 @@ class Ability
   def initialize(user)
 
 
-    user ||= User.new  #create a new user if user doesn't exist
-    if user.role?(:admin)
-        can :manage, :all
+    # user ||= User.new  #create a new user if user doesn't exist
+    # if user.role?(:admin)
+    #     can :manage, :all
 
-     elsif user.role?(:user)   
-        can :manage, :all
-        cannot :destroy
+    #  elsif user.role?(:user)   
+    #     can :manage, :all
+    #     cannot :destroy
 
-    else
-        can :read, Album
-        can :read, Photo
+    # else
+    #     can :read, Album
+    #     can :read, Photo
+        
+
+
+
+
+
+
         
         # can :manage
         # cannot :destroy

@@ -1,0 +1,19 @@
+
+<div class='container'>
+<div class='holder'>
+<h1>New Album</h1>
+<br>
+<br>
+
+
+<%= form_for @album do |f| %>
+  <%= f.label :title, 'Album name:' %>
+  <%= f.text_field :title %>
+  <br>
+  <br>
+
+  
+  <%= f.submit 'Add Album!!' %>
+<% end %>
+</div>
+</div>

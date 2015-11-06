@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagran - Photo Sharing for Seniors</title>
+
+  <!-- INSTALL BOOTSTRAP FROM CDN____________________________________________________________ -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+  <!-- STANDARD RAILS TEMPATE TAGS____________________________________________________________ -->
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- INSTALL GOOGLE FONTS_______________________________________________________________________ -->
+
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Crimson+Text:600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- SET BACKGROUND IMAGE________________________________________________________________________ -->
+
+  <div id="bg">
+    <img src="https://fa707ec5abab9620c91c-e087a9513984a31bae18dd7ef8b1f502.ssl.cf1.rackcdn.com/6366155_dating-then-and-now-8-basic-differences_8d46240c_m.jpg?bg=675F58" alt="">
+  </div>
+
+<!-- ADD MAIN NAVIGATION_________________________________________________________________________ -->
+
+  <div class='title_bar'>
+    <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
+    <p><%= link_to('Albums', albums_path) %>    |            <%= link_to('All Photos', photos_path) %>    |     
+      <% if user_signed_in? %>
+
+        <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to 'login', new_user_session_path %>
+        <%= link_to 'register', new_user_registration_path %>
+        <% end %>
+
+
+       </p>
+  </div>
+  <!-- DEVISE FLASH ERRORS_________________________________________________________________________ -->
+
+  <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+
+<%= yield %>
+<footer class='footer'>
+
+ <%= link_to('New Album', new_album_path) if can? :edit, @album  %>    |    <%= link_to('New Photo', new_photo_path) if can? :edit, @photo  %>
+
+</footer>
+
+<!-- BOOTSTRAP SCRIPTS_______________________________________________________________________________ -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

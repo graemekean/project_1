@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  album_id: 1
+  date_uploaded: MyString
+  favourite: false
+  rating: 9.99
+
+two:
+  album_id: 1
+  date_uploaded: MyString
+  favourite: false
+  rating: 9.99

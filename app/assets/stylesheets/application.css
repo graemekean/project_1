@@ -1,0 +1,168 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+p {
+  /*font-family: 'Poiret One', cursive;*/
+  /*font-family: 'Crimson Text', serif;*/
+}
+
+
+ body {
+   background-color: lightgrey;
+   background-image: url("https://fa707ec5abab9620c91c-e087a9513984a31bae18dd7ef8b1f502.ssl.cf1.rackcdn.com/6366155_dating-then-and-now-8-basic-differences_8d46240c_m.jpg?bg=675F58.jpg")
+
+ }
+
+ body a {
+  text-decoration: none;
+  color: black;
+ }
+ #button {
+
+ }
+
+ h1 {
+   padding: 5px;
+   margin: 0px;
+ }
+
+ .main_navbar {
+  color: black;
+  top: 100px;
+  position: absolute;
+  
+ }
+
+ .title_bar {
+ width: 100%;
+ text-align: left;
+ color: white;
+ top: 0px;
+ left: 0%;
+ height: 50px;
+ border-bottom: 1px solid white;
+ background-color: black;
+ position: fixed;
+ padding-left:20px;
+ z-index: 100;
+ }
+ .title_bar a{
+  color: white;
+  text-decoration: none;
+
+
+ }
+ .list {
+  background-color: white;
+  padding: 5px;
+  float: left;
+  text-align: left;
+ }
+ .list_container {
+
+
+ }
+
+ .container {
+
+  position: absolute;
+ width: 100%;
+ top: 100px;
+ text-align: center;
+ vertical-align: center;
+ padding-bottom: 100px;
+
+ }
+
+ .holder {
+ width: 500px;
+ padding: 20px;
+ margin-top: 15px;
+ background-color: white;
+ opacity: 1;
+ margin-left: auto;
+ margin-right: auto;
+ border-radius: 10px;
+ border: 2px solid black;
+ box-shadow: 0px 10px 5px #404242;
+
+ }
+ .holder img {
+
+  opacity: 1;
+ }
+
+ .table {
+width: 100%;
+
+ }
+
+ .holder2 {
+ width: 800px;
+ padding: 20px;
+ margin-top: 15px;
+ background-color: white;
+ opacity: 1;
+ margin-left: auto;
+ margin-right: auto;
+ border-radius: 10px;
+ border: 2px solid black;
+ box-shadow: 0px 10px 5px #404242;
+
+ }
+
+ .holder2 img {
+
+  opacity: 1;
+ }
+
+
+ .footer {
+ width: 150%;
+ bottom: 0px;
+ height: 30px;
+ background-color: black;
+ border-top: 1px solid white;
+ text-align: center;
+ color: white;
+ padding-top: 10px;
+ position: fixed;
+ left: -25%;
+
+ }
+ .footer a {
+   color: white;
+   text-decoration: none;
+ }
+
+ #bg {
+   position: fixed; 
+   top: -50%; 
+   left: -50%; 
+   width: 200%; 
+   height: 200%;
+   z-index: -50;
+ }
+ #bg img {
+   position: absolute; 
+   top: 50px; 
+   left: 0; 
+   right: 0; 
+   bottom: 0; 
+   margin: auto; 
+   min-width: 50%;
+   min-height: 50%;
+   z-index: -50;
+ }

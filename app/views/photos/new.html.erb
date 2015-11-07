@@ -12,7 +12,10 @@
     <br>
     <br>
     <%= f.label :album_id, 'Album:' %>
-    <%= f.select :album_id, Album.all.map { |a| [a.title, a.id] } %>
+    <%= f.select :album_id, current_user.albums.all.map { |a| [a.title, a.id] } %>
+    <br>
+    <br>
+    <%= link_to('New Album', new_album_path)   %>
     <br>
     <br>
     <%= f.label :photo_image, 'Choose File:' %><br>

@@ -12,6 +12,7 @@
 <% if photo.album_id == @album.id %>
 <%#= recipe.name %>
 <%= link_to(photo.title, photo_path(photo)) %>&nbsp;&nbsp;
+<%= link_to image_tag(photo.photo_image.thumb.url), photo.photo_image.original.url if photo.photo_image? %>   
 <% else %>
 <% end %>
 

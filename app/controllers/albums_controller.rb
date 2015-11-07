@@ -1,19 +1,21 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
+
+
   def home
-    load_albums
+  @albums = current_user.albums.all
+    
   end
 
   def index
-    load_albums
 
-  #@countries.sort!{ |a,b| a.name.downcase <=> b.name.downcase }
-  #@country = Country.find(params[:id])
+    load_albums
+  
 end
 
 def show
   load_album
-  @photos = Photo.all
+  @photos = @album.photos.all
   # @photo = Photo.find(params[:id])
 end
 
@@ -23,7 +25,10 @@ def new
 end
 
 def create
-  Album.create(album_params)   #see the team_params from the private method below
+  
+  params[:user_id] = current_user.id
+
+  current_user.albums.create(album_params)
   redirect_to(albums_path)
 end
 
@@ -47,14 +52,15 @@ end
 private
 
 def load_album
-  @album = Album.find(params[:id])
+  @album = current_user.albums.find(params[:id])
 end
 
 def load_albums
-  @albums = Album.all
+  @albums = current_user.albums.all
 end
 
 def album_params
+
   # allows these params to be accessed by the methods above
   params.require(:album).permit(:title, :user_id, :status, :date_created)
 end

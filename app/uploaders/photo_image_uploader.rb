@@ -16,7 +16,12 @@ class PhotoImageUploader < CarrierWave::Uploader::Base
   version :medium do
     process :resize_to_fit => [400, 400]
   end
-  
+
+  version :original do
+
+    
+  end
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file

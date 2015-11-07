@@ -7,11 +7,6 @@
 
 
     <%= form_for @photo do |f| %>
-
-    <%= f.label :recipe_image, 'Choose File:' %><br>
-    <%= f.file_field :recipe_image %>
-    <br>
-    <br>
     <%= f.label :title, 'Photo title:' %>
     <%= f.text_field :title %>
     <br>
@@ -20,17 +15,21 @@
     <%= f.select :album_id, Album.all.map { |a| [a.title, a.id] } %>
     <br>
     <br>
-    <%= f.label :description, 'Description:' %>
-    <%= f.text_field :description %>
+    <%= f.label :photo_image, 'Choose File:' %><br>
+    <%= f.file_field :photo_image %>
+    <br>
+    <br>
+    <%= f.label :caption, 'Caption:' %>
+    <%= f.text_field :caption %>
     <br>
     <br>
     
-     <p><% @ingredients.each do |ingredient| %>
-    <div class='list'>
-      <%= f.label :ingredient, ingredient.name %>-
-       <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>&nbsp;&nbsp;
-       </div>
-       <% end %></p>
+     <p><%# @ingredients.each do |ingredient| %>
+    <!-- <div class='list'> -->
+      <%#= f.label :ingredient, ingredient.name %>-
+       <%#= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>&nbsp;&nbsp;
+       <!-- </div> -->
+       <%# end %></p>
 
 
     <%#= f.select :ingredient_id, Ingredient.all.map { |c| [c.name, c.id] } %>
@@ -46,7 +45,7 @@
       <br>
       <div id='button'>
       <%= f.label 'Update:' %>
-      <%= f.submit 'Add Recipe!!' %>
+      <%= f.submit 'Add Photo!!' %>
       </div>
       <% end %>
       

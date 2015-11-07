@@ -1,0 +1,30 @@
+
+<div class='container'>
+  <div class='holder2'>
+  <h1>All Photos</h1>
+
+
+  <%# form_tag recipes_path, :method => 'get' do %>
+    <p>
+      <%#= text_field_tag :search, params[:search] %>
+      <%#= submit_tag "Search", :name => nil %>
+    </p>
+  <%# end %>
+
+
+
+  <p>
+    <% @photos.each do |photo| %>
+    
+    <%= link_to(photo.title, photo_path(photo)) %> 
+    <br>
+    <br>
+    <% if photo.photo_image? %>
+    <%= link_to image_tag(photo.photo_image.thumb.url), photo.photo_image.medium.url %>   
+    <% end %>
+    <br>
+    <% end %></p>
+  </div>
+</div>
+
+

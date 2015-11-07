@@ -1,11 +1,16 @@
 class PhotosController < ApplicationController
 
+
   def index
     @photos = Photo.all
     @albums = Album.all
 
-  #@countries.sort!{ |a,b| a.name.downcase <=> b.name.downcase }
-  #@country = Country.find(params[:id])
+    # @user = User.find(params[:id])
+
+
+    @photos = current_user.photos.all
+    @albums = @user.albums.all
+
 end
 
 def show
@@ -17,14 +22,10 @@ end
 def new
   @photo = Photo.new
   @photos = Photo.all
+  
   # @comments = Comment.all
 
-  # if !request.post?
-  #   @ingredients = Ingredient.all
-    
-  # else
-  #  @ingredients = params[:ingredient_ids].collect{|id| id.to_i} 
-  # end
+  
 end
 
 def create
@@ -91,7 +92,7 @@ end
 private
 def photo_params
   # allows these params to be accessed by the methods above
-  params.require(:photo).permit(:album_id, :favourite, :date_uploaded, :rating)
+  params.require(:photo).permit(:album_id, :favourite, :date_uploaded, :rating, :photo_image, :title, :caption)
 
    # ingredient_ids:[])
 end

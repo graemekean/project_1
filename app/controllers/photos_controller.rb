@@ -53,10 +53,10 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    params[:user_id] = current_user.id
+    # params[:user_id] = current_user.id
 
     @photo = Photo.all.find(params[:id])
-    
+
 
     # @photo = current_user.photos.find(params[:id])
     @albums = current_user.albums.all
@@ -78,11 +78,15 @@ class PhotosController < ApplicationController
 
   def update
 
-    params[:user_id] = current_user.id
+    # params[:user_id] = current_user.id
+
+    @photo = Photo.all.find(params[:id])
+    user_id = @photo.user_id
 
 
-    photo = current_user.photos.find(params[:id]) #again - the data does not need to be exposed - no @
-    photo.update(photo_params) #from the private method below - whitelist check
+    # photo = current_user.photos.find(params[:id]) #again - the data does not need to be exposed - no @
+    @photo.update(photo_params) 
+    #from the private method below - whitelist check
     # redirect_to(recipes_path)
     redirect_to(photos_path)
 

@@ -1,0 +1,60 @@
+
+<div class='container'>
+  <div class='holder'>
+  <h1>New Photo</h1>
+  <br>
+  <br>
+
+
+    <%= form_for @user do |f| %>
+    <div class="form-group">
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+    <%= f.label :email, 'Email:' %>
+    <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :profile_image, 'Upload a profile picture of yourself:' %><br>
+    <%= f.file_field :photo_image, class: "form-control" %>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+    <%= f.label :date_of_birth, 'Date of Birth:' %>
+    <%= f.date_field :date_of_birth, class: "form-control" %>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+    <%= f.label :about_me, 'About Me:' %>
+    <%= f.text_field :about_me, class: "form-control" %>
+    </div>
+    
+
+      <br>
+     <br>
+      <br>
+      <br>
+      <div class="form-group">
+      <%#= f.label 'Update:' %>
+      <%= f.submit 'Add user!!', class: "btn btn-primary" %>
+      </div>
+      <% end %>
+      
+    </div>
+  </div>

@@ -16,19 +16,27 @@ end
 def show
   load_comment
   @comments = @photo.comments.all
-  # @photo = Photo.find(params[:id])
+  @photo = Photo.find(params[:id])
 end
 
 def new
+
+    # @photo = Photo.find(params[:id])
+    load_photo
   @comment = Comment.new
-  load_comments
+  # load_comments
+
+
 end
 
 def create
   
-  params[:user_id] = current_user.id
+ 
 
-  current_user.comments.create(comment_params)
+    @photo = Photo.all.find(params[:id])
+
+
+  @photo.comments.create(comment_params)
   redirect_to(comments_path)
 end
 
@@ -39,7 +47,9 @@ def destroy
 end
 
 def edit
-  load_comment
+  load_photo
+  @comments = @photo.comments.all
+
 
 end
 
@@ -55,8 +65,13 @@ def load_comment
   @comment = current_user.comments.find(params[:id])
 end
 
+def load_photo
+    @photo = Photo.all.find(params[:id])
+
+  end
+
 def load_comments
-  @comments = current_user.comments.all
+  @comments = Comment.all
 end
 
 def comment_params

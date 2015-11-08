@@ -11,6 +11,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def update
+    @user = User.find(params[:id])
+    
+      # load_album #again - the data does not need to be exposed - no @
+      @user.update(user_params) #from the private method below - whitelist check
+      redirect_to(users_path)
+     
+  end
+
   def new
     @user = User.new
   end
@@ -34,6 +43,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :id, )
+                                   :password_confirmation, :id, :name, :about_me, :date_of_birth, :profile_image)
     end
 end

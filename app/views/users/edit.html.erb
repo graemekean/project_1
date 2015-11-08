@@ -1,8 +1,11 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
+<div class="container">
+  <div class="holder">
+
+  <% provide(:title, "Edit user") %>
+  <h1>Update your profile</h1>
+
     <%= form_for(@user) do |f| %>
       <%#= render 'shared/error_messages' %>
 
@@ -12,22 +15,25 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
+
       <%= f.label :about_me %>
       <%= f.text_field :about_me, class: 'form-control' %>
 
-      <%= f.label :date_of_birth, "Confirmation" %>
+      <%= f.label :date_of_birth %>
       <%= f.date_field :date_of_birth, class: 'form-control' %>
 
       <%= f.label :role %>
       <%= f.text_field :role, class: 'form-control' %>
 
 
+      <%= f.label :profile_image, 'Upload a profile picture of yourself:' %><br>
+      <%= f.file_field :profile_image, class: "form-control" %>
+      
+
+
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
+   
   </div>
 </div>

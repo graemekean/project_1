@@ -31,21 +31,22 @@
   </div>
 
 <!-- ADD MAIN NAVIGATION_________________________________________________________________________ -->
-
+<% if user_signed_in? %>
   <div class='title_bar'>
     <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
     <p><%= link_to('Albums', albums_path) %>    |            <%= link_to('All Photos', photos_path) %>    |     
-      <% if user_signed_in? %>
+      
 
         <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-        <% else %>
-        <%= link_to 'login', new_user_session_path %>
-        <%= link_to 'register', new_user_registration_path %>
-        <% end %>
+        <%# else %>
+        <%#= link_to 'login', new_user_session_path %>
+        <%#= link_to 'register', new_user_registration_path %>
+        
 
 
        </p>
   </div>
+  <% end %>
   <!-- DEVISE FLASH ERRORS_________________________________________________________________________ -->
 
   <p class="notice"><%= notice %></p>
@@ -55,7 +56,10 @@
 <%= yield %>
 <footer class='footer'>
 
+<% if user_signed_in? %>
+
  <%= link_to('New Album', new_album_path)  %>    |    <%= link_to('New Photo', new_photo_path) %>
+ <% end %>
 
 </footer>
 

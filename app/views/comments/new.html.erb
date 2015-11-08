@@ -1,0 +1,21 @@
+
+<div class='container'>
+<div class='holder'>
+<h1>New Comment</h1>
+<br>
+<br>
+
+
+<%= form_for @photo do |f| %>
+  <%#= f.label :user_id, 'User:' %>
+  <%#= f.text_field :user_id %>
+  <br>
+  <br>
+  <%= f.label :content, 'Comment:' %>
+  <%= f.text_field :content %>
+ 
+  
+  <%= f.submit 'Add Comment!!' %>
+<% end %>
+</div>
+</div>

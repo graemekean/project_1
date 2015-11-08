@@ -1,0 +1,56 @@
+
+<div class='container'>
+  <div class='holder'>
+  <h1>Edit Photo Details</h1>
+  <br>
+  <br>
+
+
+    <%= form_for @photo do |f| %>
+    <%= f.label :title, 'Photo title:' %>
+    <%= f.text_field :title %>
+    <br>
+    <br>
+    <%= f.label :album_id, 'Album:' %>
+    <%= f.select :album_id, current_user.albums.all.map { |a| [a.title, a.id] } %>
+    <br>
+    <br>
+    <%#= link_to('New Album', new_album_path)   %>
+    <br>
+    <%=  image_tag(@photo.photo_image.medium.url) %>
+    
+    <%#= f.label :photo_image, 'Choose File:' %><br>
+    <%#= f.file_field :photo_image %>
+    
+    <%= f.label :caption, 'Caption:' %>
+    <%= f.text_field :caption %>
+    <br>
+    <br>
+    
+     <p><%# @ingredients.each do |ingredient| %>
+    <!-- <div class='list'> -->
+      <%#= f.label :ingredient, ingredient.name %>-
+       <%#= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>&nbsp;&nbsp;
+       <!-- </div> -->
+       <%# end %></p>
+
+
+    <%#= f.select :ingredient_id, Ingredient.all.map { |c| [c.name, c.id] } %>
+
+       <%#= f.check_box :ingredient, recipe.ingredients << ingredient %>
+
+
+      <%#= link_to(ingredient.name, ingredient_path(ingredient)) %>
+
+      <br>
+     <br>
+      <br>
+      <br>
+      <div id='button'>
+      <%= f.label 'Update:' %>
+      <%= f.submit 'Update Photo!!' %>
+      </div>
+      <% end %>
+      
+    </div>
+  </div>

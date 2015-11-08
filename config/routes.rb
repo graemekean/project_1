@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :albums
   resources :photos
+  resources :homes
   # resources :users
   resources :comments
-  root to: 'homes#index'
+  root to: 'albums#index'
 
 
 

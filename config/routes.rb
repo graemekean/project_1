@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :albums
   resources :photos
   resources :homes
-  # resources :users
+  resources :users
   resources :comments
   root to: 'albums#index'
 

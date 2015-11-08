@@ -1,0 +1,18 @@
+
+<div class='container'>
+  <div class='holder'>
+  <h1>List of Users</h1>
+    <p>|&nbsp;<% @users.each do |user| %>
+    
+    <%= link_to(user.email, user_path(user)) %> &nbsp;   |&nbsp;
+
+    <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
+    <%#= link_to("Edit Country", edit_country_path(country)) %>
+    
+    <% end %></p>
+    <br>
+    <br>
+
+   
+  </div>
+</div>

@@ -1,0 +1,34 @@
+
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @user.email %></h1>
+<br>
+<p><%= @user.email %></p>
+<p><%= link_to image_tag(@user.profile_image.thumb.url), @user.profile_image.original.url if @user.profile_image? %> </p>
+
+
+<% @user.photos.each do |photo| %>
+
+<%# if photo.album_id == @album.id %>
+<%#= recipe.name %>
+<%= link_to(photo.title, photo_path(photo)) %>&nbsp;&nbsp;
+<%= link_to image_tag(photo.photo_image.thumb.url), photo.photo_image.original.url if photo.photo_image? %>   
+<%# else %>
+<%# end %>
+
+
+<% end %>
+<br>
+<br>
+
+<%= button_to('Delete User', user_path(@user), method: :delete, data:{confirm: "Delete user? Are you sure?"}) %>
+<%= link_to("Edit user", edit_user_path(@user)) %>
+
+
+
+</div>
+
+
+</div>

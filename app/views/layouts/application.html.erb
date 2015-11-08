@@ -34,7 +34,7 @@
 <% if user_signed_in? %>
   <div class='title_bar'>
     <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
-    <p><%= link_to('Albums', albums_path) %>    |            <%= link_to('All Photos', photos_path) %>    |     
+    <p><%= link_to('Albums', albums_path) %>    |            <%= link_to('All Photos', photos_path) %>    |     <%= link_to('Users', users_path) %> 
       
 
         <%= link_to 'logout', destroy_user_session_path, method: :delete %>

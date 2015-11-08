@@ -6,14 +6,15 @@ class PhotosController < ApplicationController
     @photos = current_user.photos.all
     @albums = current_user.albums.all
     # @photo = current_user.photos.find(params[:id])
-    
+
 
 
 
   end
 
   def show
-    # @photo = current_user.photos.find(params[:id])
+
+    @photo = Photo.all.find(params[:id])
     @photos = current_user.photos.all
     @albums = current_user.albums.all
 
@@ -54,7 +55,10 @@ class PhotosController < ApplicationController
   def edit
     params[:user_id] = current_user.id
 
-    @photo = current_user.photos.find(params[:id])
+    @photo = Photo.all.find(params[:id])
+    
+
+    # @photo = current_user.photos.find(params[:id])
     @albums = current_user.albums.all
 
     @comments = @photo.comments.all

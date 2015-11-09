@@ -2,10 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :albums
-  resources :photos
+  resources :photos do
+    resources :comments
+  end
   resources :homes
   resources :users
-  resources :comments
+  # mount Commontator::Engine => '/commontator'
+  # resources :comments
   root to: 'albums#index'
 
 

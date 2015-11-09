@@ -1,0 +1,19 @@
+
+
+<div class='container'>
+  <div class='holder'>
+  <h1>List of Comments</h1>
+    <p>|&nbsp;<% @photo.comments.each do |comment| %>
+    
+    <%= link_to(comment.content, photo_comments_path(comment)) %> &nbsp;   |&nbsp;
+
+    <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
+    <%#= link_to("Edit Country", edit_country_path(country)) %>
+    
+    <% end %></p>
+    <br>
+    <br>
+
+   
+  </div>
+</div>

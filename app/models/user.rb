@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :albums
   has_many :photos
   has_many :comments
+  # acts_as_inkwell_user
 
   mount_uploader :profile_image, PhotoImageUploader
 

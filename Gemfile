@@ -7,7 +7,9 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'acts_as_commentable'
+# gem 'commontator', '~> 4.10.0'
+gem 'inkwell'
+# gem 'acts_as_commentable'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

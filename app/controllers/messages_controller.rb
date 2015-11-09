@@ -1,7 +1,14 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  before_filter :get_mailbox
+  # , :get_box, :get_actor
 
   def new
+  end
+
+  def index
+    redirect_to conversations_path()
+
   end
 
   def create

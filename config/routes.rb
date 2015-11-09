@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+
   resources :albums
   resources :photos do
     resources :comments
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :friendships
   # mount Commontator::Engine => '/commontator'
   # resources :comments
+
   root to: 'albums#index'
 
 

@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :comments
   # acts_as_inkwell_user
   acts_as_messageable
+
+
+
   acts_as_followable
   acts_as_follower
   acts_as_liker
@@ -20,6 +23,10 @@ class User < ActiveRecord::Base
 
       def friends
         active_friends | passive_friends
+      end
+
+      def mailboxer_email
+        email
       end
 
   mount_uploader :profile_image, PhotoImageUploader

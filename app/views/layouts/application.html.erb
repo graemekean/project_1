@@ -26,15 +26,15 @@
 <body>
 <!-- SET BACKGROUND IMAGE________________________________________________________________________ -->
 
-  <div id="bg">
+ <!--  <div id="bg">
     <img src="https://fa707ec5abab9620c91c-e087a9513984a31bae18dd7ef8b1f502.ssl.cf1.rackcdn.com/6366155_dating-then-and-now-8-basic-differences_8d46240c_m.jpg?bg=675F58" alt="">
-  </div>
+  </div> -->
 
 <!-- ADD MAIN NAVIGATION_________________________________________________________________________ -->
 <% if user_signed_in? %>
   <div class='title_bar'>
     <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
-    <p><%= link_to('Albums', albums_path) %>    |            <%= link_to('All Photos', photos_path) %>    |     <%= link_to('Users', users_path) %>   |  <%= link_to('Your Conversations', conversations_path) %>
+    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('All Users', users_path) %>   |  <%= link_to('My Conversations', conversations_path) %>  |  
       
 
         <%= link_to 'logout', destroy_user_session_path, method: :delete %>

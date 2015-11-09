@@ -19,11 +19,25 @@
  @import 'bootstrap/theme';
  @import 'chosen';
 
+ @media screen and (max-width: 568px) {
+         h1 {
+     font-size:60px;
+     }
+ }
+
 
 
 p {
   /*font-family: 'Poiret One', cursive;*/
   /*font-family: 'Crimson Text', serif;*/
+}
+
+.col-md-3 {
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 0px 10px 5px #404242;
+
+
 }
 
 .messages {
@@ -35,8 +49,8 @@ p {
 
 
  body {
-   background-color: lightgrey;
-   background-image: url("https://fa707ec5abab9620c91c-e087a9513984a31bae18dd7ef8b1f502.ssl.cf1.rackcdn.com/6366155_dating-then-and-now-8-basic-differences_8d46240c_m.jpg?bg=675F58.jpg")
+   background-color: white;
+   /*background-image: url("https://fa707ec5abab9620c91c-e087a9513984a31bae18dd7ef8b1f502.ssl.cf1.rackcdn.com/6366155_dating-then-and-now-8-basic-differences_8d46240c_m.jpg?bg=675F58.jpg")*/
 
  }
 
@@ -102,7 +116,7 @@ p {
  }
 
  .holder {
- width: 500px;
+ width: 960px;
  padding: 20px;
  margin-top: 15px;
  background-color: white;

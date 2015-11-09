@@ -1,19 +1,24 @@
 
 
 <div class='container'>
-  <div class='holder'>
+
   <h1>List of Albums</h1>
-    <p>|&nbsp;<% @albums.each do |album| %>
+    <% @albums.each do |album| %>
+    <div class="col-md-3">
     
-    <%= link_to(album.title, album_path(album)) %> &nbsp;   |&nbsp;
+    <%= link_to(album.title, album_path(album)) %> 
+    <%= link_to image_tag(album.photos.last.photo_image.thumb.url), album_path(album) if album.photos.last %>
+    <%#= link_to image_tag(album.photos.last.title), album_path(album) %>
+
+    </div>
 
     <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
     <%#= link_to("Edit Country", edit_country_path(country)) %>
     
-    <% end %></p>
+    <% end %>
     <br>
     <br>
 
    
-  </div>
+ 
 </div>

@@ -1,0 +1,20 @@
+<div class='container'>
+  <div class='holder'>
+  <h1>List of Friends</h1>
+    <p>|&nbsp;<% current_user.friends.each do |friend| %>
+    <%= friend.name %>
+    <%= friend.email %>
+    <%= friend.user_id %>
+    
+    <%= link_to(friend., photo_comments_path(comment)) %> &nbsp;   |&nbsp;
+
+    <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
+    <%#= link_to("Edit Country", edit_country_path(country)) %>
+    
+    <% end %></p>
+    <br>
+    <br>
+
+   
+  </div>
+</div>

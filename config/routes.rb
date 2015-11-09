@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   resources :homes
   resources :users
+  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+  resources :friendships
   # mount Commontator::Engine => '/commontator'
   # resources :comments
   root to: 'albums#index'

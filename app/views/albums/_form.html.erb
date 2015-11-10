@@ -1,0 +1,38 @@
+<%= form_for @album, :html => {:multipart => true} do |f| %>
+ 
+
+   <%= f.label :title, :class => 'control-label' %>
+   
+
+     <%= f.text_field :title, :class => 'text_field' %>
+   
+
+ 
+
+ 
+
+   <%= f.label :caption, :class => 'control-label' %>
+   
+
+     <%= f.text_field :description, :class => 'text_field' %>
+   
+
+ 
+
+ 
+
+   
+
+   #images[] returned to the album as an array. We use file_field_tag since images is not @album's attribute
+   <%= file_field_tag "images[]", type: :file, multiple: true %>
+   
+
+ 
+
+ 
+
+   <%= f.submit "submit", :class => "btn btn-default" %>
+ 
+
+
+ <% end %>

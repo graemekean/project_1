@@ -21,9 +21,25 @@
 
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Crimson+Text:600' rel='stylesheet' type='text/css'>
+  <!-- You can use open graph tags to customize link previews.
+      Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+      <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+      <meta property="og:type"          content="website" />
+      <meta property="og:title"         content="Your Website Title" />
+      <meta property="og:description"   content="Your description" />
+      <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
 </head>
 
 <body>
+<!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <!-- SET BACKGROUND IMAGE________________________________________________________________________ -->
 
  <!--  <div id="bg">
@@ -34,15 +50,21 @@
 <% if user_signed_in? %>
   <div class='title_bar'>
     <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
-    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('All Users', users_path) %>   |  <%= link_to('My Conversations', conversations_path) %>  |  
+    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('My Profile', user_path(current_user)) %>  |    <%= link_to('My Conversations', conversations_path) %>  |
+
+
+
+
+   
       
 
         <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+        <p>Signed In as : <%= current_user.name if current_user.name %> (<%= current_user.email %>)
         <%# else %>
         <%#= link_to 'login', new_user_session_path %>
         <%#= link_to 'register', new_user_registration_path %>
         
-
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="50" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
 
        </p>
   </div>
@@ -58,12 +80,12 @@
 
 <% if user_signed_in? %>
 
- <%= link_to('New Album', new_album_path)  %>    |    <%= link_to('New Photo', new_photo_path) %>  |  <%= link_to('New user', new_user_path) %>
+ <%= link_to('New Album', new_album_path)  %>    |    <%= link_to('New Photo', new_photo_path) %>  |    <%= link_to('All Users', users_path) %>   |  
  <% end %>
-
 </footer>
 
-<!-- BOOTSTRAP SCRIPTS_______________________________________________________________________________ -->
+<!-- JAVASCRIPT SCRIPTS_______________________________________________________________________________ -->
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

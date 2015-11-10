@@ -4,6 +4,7 @@ class FriendshipsController < ApplicationController
 
   def show
     @friends = current_user.friends.all
+  end
 
 def create
       @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
@@ -14,7 +15,7 @@ def create
         flash[:error] = "Unable to request friendship."
         redirect_to :back
       end
-    end
+end
 
     # PATCH/PUT /friendships/1
     # PATCH/PUT /friendships/1.json

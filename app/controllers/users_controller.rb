@@ -54,6 +54,13 @@ class UsersController < ApplicationController
 
   end
 
+  def destroy
+    @user = User.find(params[:id])
+       #doesn't need @ since it is not exposed - only being deleted
+    @user.destroy
+    redirect_to(users_path)
+  end
+
   private
 
     def user_params

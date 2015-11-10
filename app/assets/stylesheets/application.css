@@ -25,7 +25,12 @@
      }
  }
 
+.addbutton {
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
 
+}
 
 p {
   /*font-family: 'Poiret One', cursive;*/
@@ -126,18 +131,18 @@ text-decoration: none;
  .title_bar {
  width: 100%;
  text-align: left;
- color: white;
+ color: black;
  top: 0px;
  left: 0%;
- height: 50px;
+ /*height: 50px;*/
  border-bottom: 1px solid white;
- background-color: black;
- position: fixed;
+ background-color: white;
+ /*position: fixed;*/
  padding-left:20px;
  z-index: 100;
  }
  .title_bar a{
-  color: white;
+  color: black;
   text-decoration: none;
 
 
@@ -155,7 +160,7 @@ text-decoration: none;
 
  .container {
 
-  position: absolute;
+  /*position: absolute;*/
  width: 100%;
  padding-bottom: 50px;
 

@@ -6,57 +6,79 @@
 
       <%#= button_to('Delete User', user_path(@user), method: :delete, data:{confirm: "Delete user? Are you sure?"}) %>
       <% if current_user == @user %>
-      <%= link_to("Edit user", edit_user_path(@user)) %>
+      <%= link_to("Edit My Profile", edit_user_path(@user), class: "btn btn-primary") %>
       <% end %>
       <br>
-      <br>
+      
       <%= link_to image_tag(@user.profile_image.medium.url), @user.profile_image.original.url if @user.profile_image?%> 
       <p>Email: <%= @user.email %></p>
       <p>Date of birth: <%= @user.date_of_birth %></p>    
       <p>Role: <%= @user.role %></p>    
-      <%= @user.toggle_follow!(@user) %>
-      <br>
+      <%#= @user.toggle_follow!(@user) %>
+      
       <% unless current_user == @user %>
-      <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
+      <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post, class: "btn btn-primary" %>
       <% end %>
     </div>
   
 
-    <div class="col-md-6">
+    
       <% if current_user == @user %>
-      <h4>Friend Requests</h4>
-      <ul>
-        <% @user.requested_friendships.each do |request| %>
-      <li>
-        <%= request.email %> 
-        <%= link_to "Accept", friendship_path(:id => request), :method => "put" %> 
-        <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
-      </li>
+      <div class="col-md-6">
+        <h4>Friend Requests</h4>
+        <%# if @user.requested_friendships == true %>
+            
+              <% @user.requested_friendships.each do |request| %>
+                <div class="col-md-10">
+                   
+                  <%= image_tag(request.profile_image.thumb.url) if request.profile_image %>
+                  <%= request.name %> would like to be friends
+                  <%= link_to "Accept", friendship_path(:id => request), :method => "put", class: "btn btn-primary" %> 
+                  <%= link_to "Decline", friendship_path(:id => request), :method => :delete, class: "btn btn-danger"  %>
+                
+                  </div>
+              <% end %>
+            
+          <%# else %>
+            <!-- <p>You have no pending friend requests</p> -->
+        <%# end %>
+        </div>
       <% end %>
-      </ul>
-      <% end %>
+      
+
+
+      <div class="col-md-6">
+      
       <h4>Friends</h4>
-      <ul>
+      
+      <%# if @user.friends == true %>
         <% @user.friends.each do |friend| %>
+        <ul>
         <li>
           <%= friend.email %> 
           <%= link_to image_tag(friend.profile_image.thumb.url), friend.profile_image.original.url if friend.profile_image?%> 
 
           <% if current_user == @user %>
-          <%= link_to "Remove", friendship_path(:id => friend), :method => :delete %>
+          <%= link_to "Remove", friendship_path(:id => friend), :method => :delete, class: "btn btn-danger" %>
           <% end %>
         </li>
+        </ul>
         <% end %>
-      </ul>
+        <%# else %>
+        <!-- <p>user has not added any friends</p> -->
+      <%# end %>
     </div>
+   
   
 
   <div class="row">
     <div class="col-md-12">
  
       <h2>User Timeline</h2>
-    </div>
+    
+    <%# if @user.photos == true %>
       <% @user.photos.each do |photo| %>
+
     <div class="col-md-3">
 
         <%# if photo.album_id == @album.id %>
@@ -65,6 +87,10 @@
         <%= link_to image_tag(photo.photo_image.medium.url), photo.photo_image.original.url if photo.photo_image? == true %>  
     </div> 
       <% end %>
+      <%# else %>
+      <!-- <p>User has not uploaded any photos</p> -->
+      <%# end %>
+  </div>
   </div>
  
 </div>

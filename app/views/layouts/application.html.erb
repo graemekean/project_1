@@ -50,7 +50,10 @@
 <% if user_signed_in? %>
   <div class='title_bar'>
     <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
-    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('My Profile', user_path(current_user)) %>  |    <%= link_to('My Conversations', conversations_path) %>  |
+    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('My Profile', user_path(current_user)) %>  |    <%= link_to('My Conversations', conversations_path) %>  |  
+    <% if current_user.requested_friendships == true %>
+      <p>You have a pending friend request</p>
+      <% end %>
 
 
 

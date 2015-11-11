@@ -1,27 +1,31 @@
 
 
 <div class='container'>
+<div class="col-md-12">
 
 
-<h1><%= @album.title %></h1> <p><%= button_to('Delete Album', album_path(@album), method: :delete, data:{confirm: "Delete Album? Are you sure?"}) %>
-<%= link_to("Change Album Name", edit_album_path(@album)) %></p>
-<br>
-
-
-<% @photos.each do |photo| %>
-<div class="col-md-3">
-
-<% if photo.album_id == @album.id %>
-<%#= recipe.name %>
-<%#= link_to(photo.title, photo_path(photo)) %>&nbsp;&nbsp;
-<%= link_to image_tag(photo.photo_image.medium.url), photo_path(photo) if photo.photo_image? %>   
-<% else %>
-<% end %>
+    <h1><%= @album.title %></h1> <p><%= link_to("Change Album Name", edit_album_path(@album)) %></p>
 </div>
 
+<div class="col-md-12">
+  <% @photos.each do |photo| %>
+    <div class="col-md-3 user_timeline">
 
-<% end %>
+      <% if photo.album_id == @album.id %>
+<%#= recipe.name %>
+<%#= link_to(photo.title, photo_path(photo)) %>&nbsp;&nbsp;
+      <%= link_to image_tag(photo.photo_image.medium.url), photo_path(photo) if photo.photo_image? %>   
+      <% else %>
+      <% end %>
+    </div>
 
 
+  <% end %>
 
+</div>
+<br>
+<br>
+<div class="col-md-12" style="padding-top:20px; padding-bottom:20px;">
+<%= button_to('Delete Album', album_path(@album), method: :delete, data:{confirm: "Delete Album? Are you sure?"}) %>
+</div>
 </div>

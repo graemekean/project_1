@@ -1,28 +1,30 @@
 
 <div class='container'>
+    <div class="col-md-12">
 
-  <h1>All Photos</h1>
+        <h1>All Photos</h1>
+    </div>
+
+    <div class="col-md-12">
 
 
-
-  <% @photos.each do |photo| %>
+      <% @photos.each do |photo| %>
     
 
       <%#= link_to(photo.title, photo_path(photo)) %> 
-     <% if photo.photo_image? %>
-     <div class="col-md-3">
+      <% if photo.photo_image? %>
+      <div class="col-md-3 user_timeline">
          <%= link_to image_tag(photo.photo_image.medium.url), photo_path(photo) %>
-    </div>
+      </div>
     <% end %>
   <!-- #photo.photo_image.medium.url %>    -->
   
-
   <% end %>
 
-</div>
-<div class="addbutton">
+  </div>
+  <div class="addbutton">
          <%= link_to image_tag("/icons/add3.png"), new_photo_path %>
-  
+  </div>
 
 </div>
 

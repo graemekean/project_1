@@ -6,79 +6,96 @@
       <h2><%= @user.name %></h2>
 
       <%#= button_to('Delete User', user_path(@user), method: :delete, data:{confirm: "Delete user? Are you sure?"}) %>
-      <% if current_user == @user %>
-      <%= link_to("Edit My Profile", edit_user_path(@user), class: "btn btn-primary") %>
-      <% end %>
-      <br>
+      
+
       <div class="profile_image">
         <%= link_to image_tag(@user.profile_image.medium.url), @user.profile_image.original.url if @user.profile_image?%> 
       </div>
     </div>
 
-    <div class='col-md-6'>
-      <p>Email: <%= @user.email %></p>
-      <p>Date of birth: <%= @user.date_of_birth %></p>    
-      <p>Role: <%= @user.role %></p>  
-      <p>Gender: <%= @user.gender %></p>   
+    <div class='col-md-6' style="padding-top:40px;">
+      
+        <div class="col-md-3 gendericon">
+          <% if @user.gender == "Male" %>
+          <%= image_tag("/icons/male.png") %>
+          <% elsif @user.gender == "Female" %>
+          <%= image_tag("/icons/female.png") %>
+          <% end %>
+        </div>
+        <div class="col-md-9" style="text-align:left; padding-top:15px;">
+          <p>Name: <%= @user.name %></p>
+          <p>Email: <%= @user.email %></p>
+          <p>Date of birth: <%= @user.date_of_birth %></p>    
+          <p>Role: <%= @user.role %></p>  
+        </div>
+        <div class="col-md-12" style="text-align:left;" >
+          <p>About Me:</p>
+          <p><%= @user.about_me %></p>
+        </div>
+        <% if current_user == @user %>
+        <div class="col-md-12" style="text-align:right;" >
+          <%= link_to("Edit My Profile", edit_user_path(@user), class: "btn btn-primary") %>
+        </div>
+        <% end %>
+
+
+      </div>
+    
+         
       <%#= @user.toggle_follow!(@user) %>
 
       <% unless current_user == @user %>
       <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post, class: "btn btn-primary" %>
       <% end %>
-      <div class="gendericon">
-        <% if @user.gender == "Male" %>
-        <%= image_tag("/icons/male.png") %>
-        <% elsif @user.gender == "Female" %>
-        <%= image_tag("/icons/female.png") %>
-        <% end %>
-      </div>
-    </div>
+      
   </div>
+</div>
 
 
 
-  <% if current_user == @user %>
-  <div class="col-md-6">
-    <h4>Friend Requests</h4>
+  <%# if current_user == @user %>
+  <!-- <div class="col-md-12"> -->
+    <!-- <h4>Friend Requests</h4> -->
     <%# if @user.requested_friendships == true %>
 
-    <% @user.requested_friendships.each do |request| %>
-    <div class="col-md-6">
+    <%# @user.requested_friendships.each do |request| %>
+    <!-- <div class="col-md-12"> -->
 
-      <%= image_tag(request.profile_image.thumb.url) if request.profile_image %>
-      <%= request.name %> would like to be friends
-      <%= link_to "Accept", friendship_path(:id => request), :method => "put", class: "btn btn-primary" %> 
-      <%= link_to "Decline", friendship_path(:id => request), :method => :delete, class: "btn btn-danger"  %>
+      <%#= image_tag(request.profile_image.thumb.url) if request.profile_image %>
+      <%#= request.name %> <!-- would like to be friends -->
+      <%#= link_to "Accept", friendship_path(:id => request), :method => "put", class: "btn btn-primary" %> 
+      <%#= link_to "Decline", friendship_path(:id => request), :method => :delete, class: "btn btn-danger"  %>
 
-    </div>
-    <% end %>
+    <!-- </div> -->
+    <%# end %>
 
     <%# else %>
     <!-- <p>You have no pending friend requests</p> -->
     <%# end %>
-  </div>
-  <% end %>
+  <!-- </div> -->
+  <%# end %>
 
 
 
-  <div class="col-md-6">
+  <div class="col-md-12">
 
-    <h4>Friends</h4>
+    <h2>Friends</h2>
 
     <%# if @user.friends == true %>
     <% @user.friends.each do |friend| %>
-    <ul>
-      <li>
+    <div class="col-md-2">
+    
 
         <%= link_to image_tag(friend.profile_image.thumb.url), friend.profile_image.original.url if friend.profile_image?%> 
-        <%= friend.name %> 
+    </div>
+        <%#= friend.name %> 
         <%#= friend.send_message %> 
 
-        <% if current_user == @user %>
-        <%= link_to "Remove", friendship_path(:id => friend), :method => :delete, class: "btn btn-danger" %>
-        <% end %>
-      </li>
-    </ul>
+        <%# if current_user == @user %>
+        <%#= link_to "Remove", friendship_path(:id => friend), :method => :delete, class: "btn btn-danger" %>
+        <%# end %>
+        </div>
+      
     <% end %>
     <%# else %>
     <!-- <p>user has not added any friends</p> -->
@@ -87,7 +104,7 @@
 
 
 
-  <div class="row">
+  <!-- <div class="row"> -->
     <div class="col-md-12">
 
       <h2>User Timeline</h2>
@@ -107,7 +124,7 @@
       <!-- <p>User has not uploaded any photos</p> -->
       <%# end %>
     </div>
-  </div>
+  <!-- </div> -->
 
   <%= render current_user.mailbox.inbox %>
 

@@ -49,12 +49,16 @@
 <!-- ADD MAIN NAVIGATION_________________________________________________________________________ -->
 <% if user_signed_in? %>
 <div class="container top_navbar">
-    <div class="col-md-3 mainlogo">
-        <%#=  image_tag("/images/logo_light.png") %>
+<div class="row">
+    <div class="col-md-3">
+      <div class="mainlogo">
+        <%=  image_tag("/images/logo_light.png") %>
+        </div>
     </div>
     <div class="col-md-6 col-md-offset-3 logout_box">
 
     <p>Signed In as : <%= current_user.name if current_user.name %> (<%= current_user.email %>)</p>
+    </div>
     </div>
 </div>
 

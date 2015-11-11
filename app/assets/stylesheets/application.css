@@ -28,6 +28,24 @@
   .buttonBackground(lightgreen, white);
  }
 
+ .col-sm-3 img {
+  height: 100%;
+ }
+
+ .gendericon {
+  padding: 10px;
+
+ }
+
+ .mainlogo {
+  height: 40px;
+
+ }
+ .profile-image img {
+ box-shadow: 0px 10px 5px #404242;
+  
+ }
+
 
  .col-md-3.main-logo {
   background-color: none;
@@ -233,7 +251,7 @@ width: 100%;
  }
 
  .container.top_navbar {
-  height: 35px;
+  height: 30px;
   background-color: black;
 
  }

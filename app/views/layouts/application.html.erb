@@ -48,47 +48,71 @@
 
 <!-- ADD MAIN NAVIGATION_________________________________________________________________________ -->
 <% if user_signed_in? %>
-  <div class='title_bar'>
-    <!-- <img src="http://www.leilappetit.com/blog/wp-content/uploads/2015/07/cropped-NEW-400-x-200.png?e80df2"> -->
-    <%= link_to image_tag("/icons/albums.png"), albums_path %>
-    <%= link_to image_tag("/icons/photos.png"), photos_path %>
-    <%= link_to image_tag("/icons/home.png"), user_path(current_user) %>
-    <%= link_to image_tag("/icons/comment.png"), conversations_path %>
+<div class="container top_navbar">
+    <div class="col-md-3 mainlogo">
+        <%#=  image_tag("/images/logo_light.png") %>
+    </div>
+    <div class="col-md-6 col-md-offset-3 logout_box">
 
+    <p>Signed In as : <%= current_user.name if current_user.name %> (<%= current_user.email %>)</p>
+    </div>
+</div>
 
+  <!-- <div class='title_bar'> -->
+  <div class="container main_navbar">
+      <div class="row">
+        <div class="col-sm-2">
+          <% if current_user.gender == "Male" %>
+          <%= link_to image_tag("/icons/male.png"), user_path(current_user) %>
+          <% elsif current_user.gender == "Female" %>
+          <%= link_to image_tag("/icons/female.png"), user_path(current_user) %>
+          <% end %>
+          <p><%= link_to('My Profile', user_path(current_user)) %></p>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to image_tag("/icons/albums.png"), albums_path %>
+          <p><%= link_to('My Albums', albums_path) %></p>
+        </div>
 
+      <div class="col-sm-2">
+        <%= link_to image_tag("/icons/photos.png"), photos_path %> 
+        <p><%= link_to('All My Photos', photos_path) %></p>
+      </div>
 
-    <p><%= link_to('My Albums', albums_path) %>    |            <%= link_to('All My Photos', photos_path) %>    |     <%= link_to('My Profile', user_path(current_user)) %>  |    <%= link_to('My Conversations', conversations_path) %>  |  
-    <% if current_user.requested_friendships == true %>
-      <p>You have a pending friend request</p>
-      <% end %>
+      <div class="col-sm-2">
+        <%= link_to image_tag("/icons/comment.png"), conversations_path %>
+        <p><%= link_to('My Conversations', conversations_path) %></p>
+      </div>
 
-
-
-
+      <div class="col-sm-2">
+          <%= link_to image_tag("/icons/heart.png"), friendships_path %>
+          <p><%= link_to('My Friends', friendships_path) %></p>
+      </div>
    
-      
+      <div class="col-sm-2">
+      <%= link_to image_tag("/icons/logout.png"), destroy_user_session_path, method: :delete %>
+      <p><%= link_to 'logout', destroy_user_session_path, method: :delete %></p>
+      </div>
+    </div>
+ </div>       
+ <% end %>    
 
-        <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-        <p>Signed In as : <%= current_user.name if current_user.name %> (<%= current_user.email %>)
+
         <%# else %>
         <%#= link_to 'login', new_user_session_path %>
         <%#= link_to 'register', new_user_registration_path %>
         
-        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="50" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+       <!--  <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="50" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div> -->
+   
+ 
 
-       </p>
-  </div>
-  <% end %>
   <!-- DEVISE FLASH ERRORS_________________________________________________________________________ -->
-
-  <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
 
 
 <%= yield %>
 <footer class='footer'>
-
+<p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
 <% if user_signed_in? %>
 
  <%= link_to('New Album', new_album_path)  %>    |    <%= link_to('New Photo', new_photo_path) %>  |    <%= link_to('All Users', users_path) %>   |  

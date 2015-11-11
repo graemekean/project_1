@@ -21,6 +21,8 @@ class PhotosController < ApplicationController
   end
 
   def new
+    
+    
     @photo = Photo.new
     @photos = current_user.photos.all
 

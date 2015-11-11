@@ -24,6 +24,43 @@
      font-size:20px;
      }
  }
+ .btn.btn-primary {
+  .buttonBackground(lightgreen, white);
+ }
+
+
+ .col-md-3.main-logo {
+  background-color: none;
+  height: 120%;
+  padding: 0px;
+
+ }
+
+ .col-md-3.main-logo img {
+ height: 100%;
+ z-index: 10;
+
+ }
+
+ .col-md-6.logout_box {
+  background-color: none;
+  height: 100%;
+  color: white;
+  text-align: right;
+  padding-top: 7px;
+  font-size: 0.9em;
+
+  
+ }
+
+ .col-md-3.logout_box p {
+ 
+  color: white;
+  text-align: right;
+  padding-top: 8px;
+  font-size: 1.2em;
+  
+ }
 
 .addbutton {
   position: fixed;
@@ -62,7 +99,7 @@ text-decoration: none;
 
 .col-md-3 {
   /*border-radius: 10px;*/
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   /*box-shadow: 0px 10px 5px #404242;*/
   /*padding-bottom:;*/
   position: relative;
@@ -72,9 +109,19 @@ text-decoration: none;
 }
 
 .col-md-3 img {
+  /*padding: 10px;*/
   margin-left: auto;
   margin-right: auto;
-  width:100%;
+  height:100%;
+  
+
+}
+.col-md-3.user_timeline {
+  padding-top: 15px;
+  padding-bottom: 15px;
+ box-shadow: 0px 10px 5px #404242;
+
+
 
 }
 
@@ -85,13 +132,21 @@ text-decoration: none;
 
 }
 
-.col-md-6 {
+.col-md-6.friends_list{
+  height: 100px;
+  text-align: left;
+float: right;
+  
   /*border-radius: 10px;*/
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   /*box-shadow: 0px 10px 5px #404242;*/
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  /*padding-bottom: 10px;*/
+  /*margin-bottom: 10px;*/
 }
+.col-md-6.friends_list img{
+  height: 100%;
+
+  }
 
 
 .messages {
@@ -120,6 +175,11 @@ text-decoration: none;
    padding: 0px;
    margin-bottom: 10px;
  }
+ h4 {
+  color: black;
+  text-decoration: none;
+  font-size: 1.0em
+ }
 
  .main_navbar {
   color: black;
@@ -131,15 +191,17 @@ text-decoration: none;
  .title_bar {
  width: 100%;
  text-align: left;
- color: black;
+ color: white;
  top: 0px;
  left: 0%;
- /*height: 50px;*/
+ height: 30px;
  border-bottom: 1px solid white;
- background-color: white;
+ background-color: black;
  /*position: fixed;*/
  padding-left:20px;
+ padding-top: 4px;
  z-index: 100;
+ margin-bottom: 5px;
  }
  .title_bar a{
   color: black;
@@ -161,13 +223,31 @@ text-decoration: none;
  .container {
 
   /*position: absolute;*/
- width: 100%;
+width: 100%;
  padding-bottom: 50px;
 
  text-align: center;
  vertical-align: center;
  /*padding-bottom: 100px;*/
 
+ }
+
+ .container.top_navbar {
+  height: 35px;
+  background-color: black;
+
+ }
+
+ .container.main_navbar {
+  top: 0px;
+  background-color: lightgreen;
+  position: relative;
+  padding-top: 10px;
+
+
+ }
+ .container.edit_user {
+  padding-bottom: 10px;
  }
 
  .holder {
@@ -250,3 +330,20 @@ width: 100%;
    min-height: 50%;
    z-index: -50;
  }
+
+ .error_box {
+  width: 200px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  position: fixed;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 0px 10px 5px #404242;
+
+
+ }
+
+

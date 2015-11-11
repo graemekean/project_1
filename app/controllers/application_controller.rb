@@ -18,6 +18,30 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
 
+  # helper_method :mailbox
+
+  helper_method :mailbox, :conversation
+
+    
+  
+
+
+
+
+    
+    private
+
+    def mailbox
+      @mailbox ||= current_user.mailbox
+    end
+
+    def conversation
+      @conversation ||= mailbox.conversations.find(params[:id])
+    end
+
+   
+  
+
 
 
   

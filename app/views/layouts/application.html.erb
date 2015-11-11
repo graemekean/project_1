@@ -51,7 +51,7 @@
 <div class="container top_navbar">
 <div class="row">
     <div class="col-md-3">
-      <div class="mainlogo">
+      <div class="mainlogo animated shake">
         <%=  image_tag("/images/logo_light.png") %>
         </div>
     </div>
@@ -84,8 +84,8 @@
       </div>
 
       <div class="col-sm-2">
-        <%= link_to image_tag("/icons/comment.png"), conversations_path %>
-        <p><%= link_to('My Conversations', conversations_path) %></p>
+        <%= link_to image_tag("/icons/comment.png"), mailbox_inbox_path %>
+        <p><%= link_to "Inbox", mailbox_inbox_path %></p>
       </div>
 
       <div class="col-sm-2">

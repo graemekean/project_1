@@ -8,13 +8,25 @@ Rails.application.routes.draw do
   end
   resources :homes
   resources :users
-  resources :conversations, only: [:index, :show, :destroy]
+  # resources :conversations, only: [:index, :show, :destroy]
   resources :messages, only: [:new, :create]
   resources :friendships
   # mount Commontator::Engine => '/commontator'
   # resources :comments
 
   root to: 'albums#index'
+
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
+  resources :conversations do
+      member do
+        post :reply
+        post :trash
+        post :untrash
+      end
+    end
 
 
 

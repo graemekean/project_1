@@ -25,9 +25,13 @@ class User < ActiveRecord::Base
         active_friends | passive_friends
       end
 
-      def mailboxer_email
-        email
-      end
+      def mailboxer_name
+         self.name
+       end
+
+       def mailboxer_email(object)
+         self.email
+       end
 
   mount_uploader :profile_image, PhotoImageUploader
 

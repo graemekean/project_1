@@ -4,6 +4,12 @@ class FriendshipsController < ApplicationController
 
   def show
     @friends = current_user.friends.all
+    @users = User.all
+  end
+
+  def index
+    # @friends = current_user.friends.all
+    @users = User.all
   end
 
 def create

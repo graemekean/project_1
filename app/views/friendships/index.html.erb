@@ -1,48 +1,54 @@
 <div class="container">
-
-  <div class="col-md-6 friends_lists">
     <div class="col-md-12">
+      <h2>Friend Requests</h2>
+    </div>
+    <div class="col-md-12">
+        <% current_user.requested_friendships.each do |request| %>
+        <div class="col-md-3">
+          <%= image_tag(request.profile_image.medium.url) if request.profile_image %>
 
-      <h4>Friends List</h4>
+          <%= request.name %> would like to be friends
+
+          <%= link_to "Accept", friendship_path(:id => request), :method => "put", class: "btn btn-primary" %> 
+          <%= link_to "Decline", friendship_path(:id => request), :method => :delete, class: "btn btn-danger"  %>
+
+        </div>
+        <% end %>
     </div>
 
 
+
+
+
+
+
+
+    <div class="col-md-12 friends_lists">
+    <div class="col-md-12">
+    
+      <h2>Friends</h2>
+    </div>
+    
     <% current_user.friends.each do |friend| %>
     
-    <div class="col-md-12">
-      <div>
-        <%= link_to image_tag(friend.profile_image.thumb.url), friend.profile_image.original.url if friend.profile_image?%> 
-      </div>
-      <div>
-        <%= friend.name %> 
-        <% if current_user == @user %>
-        <%= link_to "Remove", friendship_path(:id => friend), :method => :delete, class: "btn btn-xs-danger" %>
-        <% end %>
+        <div class="col-md-2">
+            <div>
+                  <%= link_to image_tag(friend.profile_image.medium.url), friend.profile_image.original.url if friend.profile_image?%> 
+            </div>
+            <div>
+                  <%= friend.name %> 
+                  <% if current_user == @user %>
+                  <%= link_to "Remove", friendship_path(:id => friend), :method => :delete, class: "btn btn-xs-danger" %>
+                  <% end %>
+            </div>
     <% end %>
-      </div>
+        </div>
 
     </div>
 
 
-    <div class="col-md-6 friends_lists">
-    
-      <div class="col-md-12" style="color:black;">
-        <h4>Friend Requests Pending</h4>
-      </div>
-        <% current_user.requested_friendships.each do |request| %>
-
-      
-    <div>
-      <%= image_tag(request.profile_image.thumb.url) if request.profile_image %>
-
-      <%= request.name %> would like to be friends
-
-      <%= link_to "Accept", friendship_path(:id => request), :method => "put", class: "btn btn-primary" %> 
-      <%= link_to "Decline", friendship_path(:id => request), :method => :delete, class: "btn btn-danger"  %>
-
-    </div>
-    <% end %>
-  </div>
+  
 </div>
+
 
 

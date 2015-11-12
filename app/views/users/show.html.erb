@@ -18,7 +18,7 @@
         <div class="col-md-3 gendericon">
           <% if @user.gender == "Male" %>
           <%= image_tag("/icons/male.png") %>
-          <% elsif @user.gender == "Female" %>
+          <% else %>
           <%= image_tag("/icons/female.png") %>
           <% end %>
         </div>

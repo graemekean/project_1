@@ -28,6 +28,14 @@
   .buttonBackground(lightgreen, white);
  }
 
+ .flip-animate:hover {
+   animation-name: flip;
+   animation-iteration-count: 1;
+   animation-duration: 0.7s;
+ }
+
+
+
  .col-sm-3 img {
   height: 100%;
  }

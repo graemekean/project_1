@@ -65,7 +65,7 @@
   <!-- <div class='title_bar'> -->
   <div class="container main_navbar">
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-2 flip-animate">
           <% if current_user.gender == "Male" %>
           <%= link_to image_tag("/icons/male.png"), user_path(current_user) %>
           <% elsif current_user.gender == "Female" %>
@@ -73,27 +73,27 @@
           <% end %>
           <p><%= link_to('My Profile', user_path(current_user)) %></p>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 flip-animate">
           <%= link_to image_tag("/icons/albums.png"), albums_path %>
           <p><%= link_to('My Albums', albums_path) %></p>
         </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-2 flip-animate">
         <%= link_to image_tag("/icons/photos.png"), photos_path %> 
         <p><%= link_to('All My Photos', photos_path) %></p>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-2 flip-animate">
         <%= link_to image_tag("/icons/comment.png"), mailbox_inbox_path %>
         <p><%= link_to "Inbox", mailbox_inbox_path %></p>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-2 flip-animate">
           <%= link_to image_tag("/icons/heart.png"), friendships_path %>
           <p><%= link_to('My Friends', friendships_path) %></p>
       </div>
    
-      <div class="col-sm-2">
+      <div class="col-sm-2 flip-animate">
       <%= link_to image_tag("/icons/logout.png"), destroy_user_session_path, method: :delete %>
       <p><%= link_to 'logout', destroy_user_session_path, method: :delete %></p>
       </div>
